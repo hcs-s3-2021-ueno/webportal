@@ -16,8 +16,8 @@ h1 {
 }
 
 .content-box {
-	min-width :500px;
-	margin: 5px;
+	min-width :250px;
+	margin: 7px;
 	padding: 10px;
 	border-radius: 3px;
 	background-color: #FFFF99;

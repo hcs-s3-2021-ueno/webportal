@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
@@ -67,30 +66,13 @@
 
 	<!-- コンテンツ -->
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>住所検索 - 郵便番号</h2>
-					<form method="post" th:action="@{/zip}">
-						<div class="input-group">
-							<input type="number" class="form-control" name="zipcode"
-								placeholder="郵便番号 : XXXXXXX"> <span
-								class="input-group-btn">
-								<button type="submit" class="btn btn-info">検索</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-		
-			<div class="col-sm-6">
-					<div class="content-box">
-					<h2>札幌の天気予報</h2>
-						<form method="get" th:action="@{/weather}">
-							<button type="submit" id="weather" class="btn btn-primary">もっと詳しく</button>
-						</form>
-					</div>
-			</div>
+		<div class="content-box">
+			<h1>札幌の予報画面</h1>
+			<p>（詳細）</p>
+			<ul th:eath="forecast : ${weatherEntity.forecasts}">
+				<li><h4><span th:text="${forecast.dataLabel}"></span></h4></li>
+				<li><span th:text="${forecast.telop}"></span></li>
+			</ul>
 		</div>
 	</div>
 

@@ -2,16 +2,19 @@ package jp.ac.hcs.s3a205.zipcode;
 
 import java.security.Principal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 public class ZipCodeController {
+	
+	@Autowired
+	private ZipCodeService zipCodeService;
+	
 	/**
 	 * 郵便番号から住所を検索し、結果を画面に表示する
 	 * @param zipcode 検索する郵便番号（ハイフン無し）
@@ -22,7 +25,10 @@ public class ZipCodeController {
 	@PostMapping("/zip")
 	public String getZipCode(@RequestParam("zipcode") String zipcode,
 			Principal principal, Model model) {
-		log.info("住所検索：");
+		
+		ZipCodeEntity zipCodeEntity = zipCodeService.getZip(zipcode);
+		model.addAttribute("zipCodeEntity", zipCodeEntity);
+		
 		return "zipcode/zipcode";
 	}
 }

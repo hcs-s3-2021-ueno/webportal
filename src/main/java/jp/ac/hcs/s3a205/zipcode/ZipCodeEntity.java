@@ -15,6 +15,6 @@ public class ZipCodeEntity {
 	private String message;
 	
 	/** 郵便番号の情報リスト */
-	private List<ZipCodeData> result = new ArrayList<ZipCodeData>();
+	private List<ZipCodeData> results = new ArrayList<ZipCodeData>();
 
 }
